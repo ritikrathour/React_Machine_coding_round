@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import Suggetion from "./comp/Suggetion"; 
 import OTP_input from "./comp/OtpInput";
+import ChipsInput from "./comp/ChipsInput";
 
 const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -102,6 +103,7 @@ const App = () => {
   }
   return (
     <>
+    <div className="h-[200vh]">
       <div className="mt-10 flex justify-center flex-col items-center">
         <div className="w-[400px]">
           <h1 className="text-center font-bold text-[25px]">AutoComplete</h1>
@@ -152,6 +154,10 @@ const App = () => {
       </div >
       <div className="mt-64 flex justify-center">
         <OTP_input/>
+      </div>
+      <div className="mt-28 flex justify-center">
+        <ChipsInput/>
+      </div>
       </div>
     </>
   )
