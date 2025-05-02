@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import Suggetion from "./comp/Suggetion"; 
+import OTP_input from "./comp/OtpInput";
 
 const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -149,6 +150,9 @@ const App = () => {
           </div>
         </div>
       </div >
+      <div className="mt-64 flex justify-center">
+        <OTP_input/>
+      </div>
     </>
   )
 }
