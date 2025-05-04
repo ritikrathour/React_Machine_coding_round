@@ -2,24 +2,24 @@ import { useState } from "react";
 
 const ChipsInput = () => {
     const [chips, setChips] = useState([]);
-    const [input, setInput] = useState("");  
-    const [index,setIndex] = useState(0)
+    const [input, setInput] = useState("");
     const handleChange = (value) => {
         setInput(value)
-    }  
-    
+    }
+
     const handleKeyDown = (event) => {
-        if (event.key === "Enter") { 
-            setIndex(prev=>prev+1)
+        if (event.key === "Enter" && input?.trim() !== "" && input?.trim()?.length >= 3) {
             setInput("")
             setChips((prev) => {
-                return [...prev, {value:input,index:index}]
+                return [...prev, { value: input }]
             })
         }
-    }   
-    const handleDeletChip = (index) => { 
-        let filterdChips = chips.filter((value) => value.index !== index)
-        setChips(filterdChips)
+    }
+    const handleDeletChip = (index) => {
+        // let filterdChips = chips.filter((value) => value.index !== index)
+        const newArr = [...chips];
+        newArr.splice(index, 1)
+        setChips(newArr)
     }
     return (
         <>
@@ -34,9 +34,9 @@ const ChipsInput = () => {
                 <ul className="flex mt-2 gap-2 justify-center items-center flex-wrap">
                     {
                         chips?.length < 1 ? <p className="text-[12px]">You don't have any chips right now!</p> :
-                            chips?.map((chip) => {   
-                                return <li key={chip.index} className="capitalize bg-gray-300 px-3 flex items-center gap-2 py-1 rounded-full">
-                                    {chip.value} <span onClick={() => handleDeletChip(chip?.index)} className="h-[20px] text-[12px] leading-[20px] w-[20px] bg-red-700 inline-block rounded-full text-center text-white cursor-pointer">X</span>
+                            chips?.map((chip, index) => {
+                                return <li key={index} className="capitalize bg-gray-300 px-3 flex items-center gap-2 py-1 rounded-full">
+                                    {chip.value} <span onClick={() => handleDeletChip(index)} className="h-[20px] text-[12px] leading-[20px] w-[20px] bg-red-700 inline-block rounded-full text-center text-white cursor-pointer">X</span>
                                 </li>
                             })
                     }
