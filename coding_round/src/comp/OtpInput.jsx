@@ -40,24 +40,24 @@ const OTP_input = () => {
     };
     return (
         <>
-        <div>
-            <h2 className="text-center text-2xl font-semibold mb-4">OTP Input</h2>        
-            <div className="flex gap-4">
-                {
-                    inputArr?.map((otp, index) => {
-                        return <input
-                            value={otp}
-                            className="border border-black w-[40px] h-[40px] rounded-md text-center text-[25px]"
-                            key={index}
-                            type={inputType[index]}
-                            ref={(val) => otp_input_ref.current[index] = val}
-                            onChange={(e) => handleChange(e.target.value, index)}
-                            maxLength={1}
-                            onKeyDown={(e) => handleKeyDown(e, index)}
-                        />
-                    })
-                }
-            </div>
+            <div>
+                <h2 className="text-center text-2xl font-semibold mb-4">OTP Input</h2>
+                <div className="flex gap-4">
+                    {
+                        inputArr?.map((otp, index) => {
+                            return <input
+                                value={otp}
+                                className="border border-black w-[40px] h-[40px] rounded-md text-center text-[25px]"
+                                key={index}
+                                type={inputType[index]}
+                                ref={(val) => otp_input_ref.current[index] = val}
+                                onChange={(e) => handleChange(e.target.value, index)}
+                                maxLength={1}
+                                onKeyDown={(e) => handleKeyDown(e, index)}
+                            />
+                        })
+                    }
+                </div>
             </div>
         </>
     )

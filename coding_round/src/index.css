@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.main:hover .actionable{
+    opacity: 1;
+    transition: .5s;
+}

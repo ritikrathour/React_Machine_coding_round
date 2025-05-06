@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import Suggetion from "./comp/Suggetion"; 
 import OTP_input from "./comp/OtpInput";
 import ChipsInput from "./comp/ChipsInput";
+import FileFolderExplorer from "./comp/FIleFolderExplorer";
 
 const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -157,6 +158,9 @@ const App = () => {
       </div>
       <div className="mt-28 flex justify-center">
         <ChipsInput/>
+      </div>
+      <div className="mt-28 flex justify-center">
+        <FileFolderExplorer/>
       </div>
       </div>
     </>
